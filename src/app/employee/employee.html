@@ -1,0 +1,37 @@
+<h1>Employee Management</h1>
+
+<p>Welcome to Employee Management App</p>
+
+<h2>Employees</h2>
+<!--
+@for (emp of employees; track emp.name) {
+  <p>
+    {{ emp.name }} - {{ emp.age }} - ₹{{ emp.salary }}
+  </p>
+}
+-->
+@for (emp of employees; track emp.id) {
+  <app-employee-card [employee]="emp"></app-employee-card>
+}
+
+
+<button (click)="showMessage()">Click Me</button>
+
+<button (click)="saveEmployee()">Save Employee</button>
+<!-- This is an HTML comment 
+<input [(ngModel)]="nameInput" required #name="ngModel">
+
+<p>You entered: {{ nameInput }}</p>
+
+<p *ngIf="name.invalid && name.touched">
+  Name is required
+</p>
+ This is an HTML comment -->
+
+<input [(ngModel)]="nameInput" required #name="ngModel">
+
+<p>You entered: {{ nameInput }}</p>
+
+@if (name.invalid && name.touched) {
+  <p>Name is required</p>
+}
